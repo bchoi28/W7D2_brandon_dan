@@ -1,0 +1,19 @@
+<h1> Sign Up</h1>
+
+<%#= render 'form', user: @user, type :new %>
+
+<form action="<%=users_url%>" method="POST">
+
+<label> Email:
+    <input type="text" name="user[email]" value="<%= @user.email %>">
+</label>
+
+<label> Password:
+    <input type="password" name="user[password]" value="">
+</label>
+
+
+
+<input type="submit" value="Sign Up User">
+
+</form>

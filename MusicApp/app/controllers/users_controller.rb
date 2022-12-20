@@ -25,4 +25,7 @@ class UsersController < ApplicationController
         render :show
     end
 
+    def user_params
+        params.require(:user).permit(:email, :password)
+    end
 end
