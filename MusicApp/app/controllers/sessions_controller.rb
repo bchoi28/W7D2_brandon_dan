@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+    before_action :require_logged_in, only: [:destroy]
+    before_action :require_logged_out, only: [:new, :create]
+
     def new
         @user = User.new
         render :new
@@ -24,7 +27,7 @@ class SessionsController < ApplicationController
     def destroy
         if logged_in?
             logout!
-        flash[:messages] = ["Successfully logged out"]
+            flash[:messages] = ["Successfully logged out"]
         end
 
         redirect_to new_session_url        
